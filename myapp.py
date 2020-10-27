@@ -1,15 +1,11 @@
 from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
-from kivy.lang.builder import Builder
 from kivy.uix.button import Button
+from kivy.lang.builder import Builder
 
 
 kv_string = '''
 BoxLayout:
     orientation: 'vertical'
-
-
     ActionBar:
         ActionView:
             use_separator: True
@@ -31,8 +27,6 @@ BoxLayout:
     on_press: 
         app.to_remove(self.parent)
         app.mybtn = None
-    
-
 '''
 class Mbtn(Button):
     pass 
