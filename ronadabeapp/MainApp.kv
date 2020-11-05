@@ -1,0 +1,45 @@
+ScreenManager:
+    Screen:
+        name: "login"
+        MDCard:
+            orientation: "vertical"
+            padding: "8dp"
+            size_hint: None, None
+            size: root.height/3, root.height/2
+            pos_hint: {"center_x": .5, "center_y": .5}
+            MDLabel:
+                text: "Login"
+                theme_text_color: "Secondary"
+                size_hint_y: None
+                height: self.texture_size[1]
+            MDSeparator:
+                height: "1dp"
+            MDLabel:
+                text: ""
+            MDTextField:
+                id: user
+                hint_text: "Nome do Usuário"
+            MDLabel:
+                text: ""
+            MDTextField:
+                id: pwd
+                hint_text: "Senha"
+                password: True
+            MDLabel:
+                id: display
+                text: ""
+                halign: "center"
+                theme_text_color: "Error"
+            MDRaisedButton:
+                text: "enviar"
+                on_release: app.check_crendentials(user.text, pwd.text, display)
+                pos_hint: {"center_x": .5}
+    Screen:
+        name: "logado"
+        MDLabel:
+            text: "PARABÉNS"
+            halign: "center"
+        MDRaisedButton:
+            text: "voltar"
+            on_release: root.current = 'login'
+            pos_hint: {"center_x": .5, "center_y": .4}
