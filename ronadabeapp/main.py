@@ -46,14 +46,16 @@ ScreenManager:
             pos_hint: {"center_x": .5, "center_y": .4}
 
 '''
-
+import platform
+if platform.system() == 'Windows':
+    from kivy.modules.screen import apply_device
+    apply_device('onex', .65, 'portrait')
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.audio import SoundLoader
-
 print("1")
 ERROU = SoundLoader.load(r'./audios/errou_faustao.mp3')
-PARABENS = SoundLoader.load('./audios/parabens.mp3')
+PARABENS = SoundLoader.load(r'./audios/parabens.mp3')
 print("2")
 class MainApp(MDApp):
     
